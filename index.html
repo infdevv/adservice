@@ -125,9 +125,6 @@ h1 {
 		<script src="https://pl28347727.effectivegatecpm.com/39/38/e5/3938e5d9943cff1dd3fbc6b3b08c2f2d.js"></script>
     </main>
 	<script>
-		// open el ads 
-		window.open("https://www.effectivegatecpm.com/apcwya80vu?key=d11bdcac615d998ece47753baf97c298", target="_blank")
-
         // get url parameter
         const urlParams = new URLSearchParams(window.location.search);
         const continueButton = document.getElementById('continue');
@@ -144,12 +141,15 @@ h1 {
         }, 1000);
         
         setTimeout(() => {
+            
             continueButton.disabled = false;
             continueButton.textContent = 'Continue';
             loadingText.textContent = 'Ready to proceed';
             
             continueButton.addEventListener('click', () => {
                 const url = urlParams.get('url');
+                // open el ads 
+		window.open("https://www.effectivegatecpm.com/apcwya80vu?key=d11bdcac615d998ece47753baf97c298", target="_blank")
                 if (url) {
                     try {
                         const decodedUrl = atob(url);
