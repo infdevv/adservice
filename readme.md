@@ -1,0 +1,1 @@
+ad service used for composite

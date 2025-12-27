@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generic Ad Service (TM)</title>
+	<style>
+		* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+main {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 48px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    transition: box-shadow 0.3s ease;
+}
+
+main:hover {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-size: 2.25rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+    color: #1f2937;
+    letter-spacing: -0.025em;
+}
+
+#continue {
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    min-width: 160px;
+}
+
+#continue:hover:not(:disabled) {
+    background-color: #059669;
+    box-shadow: 0 4px 8px rgba(16, 185, 129, 0.3);
+}
+
+#continue:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(16, 185, 129, 0.2);
+}
+
+#continue:disabled {
+    background-color: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.loading-text {
+    display: block;
+    margin-top: 16px;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    
+    main {
+        padding: 32px 24px;
+    }
+    
+    h1 {
+        font-size: 1.875rem;
+        margin-bottom: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    main {
+        padding: 24px 20px;
+    }
+    
+    #continue {
+        width: 100%;
+        padding: 14px 24px;
+    }
+}
+	</style>
+</head>
+<body>
+    <main>
+		<h1>Generic Ad Service (TM)</h1>
+        <button id="continue" disabled>Continue</button>
+        <p class="loading-text" id="loading-text">Please wait while we process your request...</p>
+		<script src="https://pl28347727.effectivegatecpm.com/39/38/e5/3938e5d9943cff1dd3fbc6b3b08c2f2d.js"></script>
+    </main>
+	<script>
+		// open el ads 
+		window.open("https://www.effectivegatecpm.com/apcwya80vu?key=d11bdcac615d998ece47753baf97c298", target="_blank")
+
+        // get url parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const continueButton = document.getElementById('continue');
+        const loadingText = document.getElementById('loading-text');
+        
+        // Update loading text every second
+        let countdown = 5;
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            loadingText.textContent = `Please wait while we process your request... (${countdown}s)`;
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+            }
+        }, 1000);
+        
+        setTimeout(() => {
+            continueButton.disabled = false;
+            continueButton.textContent = 'Continue';
+            loadingText.textContent = 'Ready to proceed';
+            
+            continueButton.addEventListener('click', () => {
+                const url = urlParams.get('url');
+                if (url) {
+                    try {
+                        const decodedUrl = atob(url);
+                        if (decodedUrl && decodedUrl.startsWith('http')) {
+                            window.location.href = decodedUrl;
+                        } else {
+                            loadingText.textContent = 'Invalid URL provided';
+                            loadingText.style.color = '#dc2626';
+                        }
+                    } catch (error) {
+                        loadingText.textContent = 'Error processing URL';
+                        loadingText.style.color = '#dc2626';
+                        console.error('URL decoding error:', error);
+                    }
+                } else {
+                    loadingText.textContent = 'No URL provided';
+                    loadingText.style.color = '#dc2626';
+                }
+            });
+        }, 5000);
+	</script>
+</body>
+</html>
